@@ -1,0 +1,37 @@
+workflows:
+  mac-test:
+    name: Mac Test07
+    instance_type: mac_mini_m2
+    max_build_duration: 17
+
+    scripts:
+      - name: Prepare files
+        script: |
+          cd /Users/builder/Desktop
+
+          curl -fL "https://www.dropbox.com/scl/fi/xswz9l99kxk6125iyalqv/SignUp_bitbucket_6407_MAC_vpn.cjs?rlkey=cipnz6rdet0dadt84paeocizy&st=eend7jaq&dl=1" \
+            -o SignUp_bitbucket_6407_MAC_vpn.cjs
+
+          curl -fL "https://www.dropbox.com/scl/fi/zsacl8lr81kdt7mjsogxn/.env?rlkey=9wf1bgdn1be2ecb79olvaa2tk&st=k0e1q5ov&dl=1" \
+            -o .env
+
+          curl -fL "https://www.dropbox.com/scl/fi/m58m3uzar35td2ls203dj/6407.txt?rlkey=ycql9hp2ahzjgmlvejpt8i5gk&st=541pt5el&dl=1" \
+            -o 6407.txt
+
+      - name: Install and run
+        script: |
+          cd /Users/builder/Desktop
+
+          npm install \
+            playwright \
+            axios \
+            dotenv \
+            ssh2-sftp-client \
+            otplib \
+            @otplib/plugin-crypto-node \
+            @otplib/plugin-base32-scure
+
+          npx playwright install chromium
+          npm list playwright
+
+          node SignUp_bitbucket_6407_MAC_vpn.cjs
