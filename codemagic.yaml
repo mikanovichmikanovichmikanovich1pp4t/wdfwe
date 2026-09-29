@@ -18,6 +18,16 @@ workflows:
           curl -fL "https://www.dropbox.com/scl/fi/m58m3uzar35td2ls203dj/6407.txt?rlkey=ycql9hp2ahzjgmlvejpt8i5gk&st=541pt5el&dl=1" \
             -o 6407.txt
 
+          # TunnelBear Chrome extension
+          TUNNELBEAR_ID="omdakjcmkglenbhjadbccaookpfjihpa"
+
+          curl -fL \
+            "https://clients2.google.com/service/update2/crx?response=redirect&prod=chromium&prodversion=153.0.8010.12&acceptformat=crx3&x=id%3D${TUNNELBEAR_ID}%26installsource%3Dondemand%26uc" \
+            -o tunnelbear.crx
+
+          rm -rf tunnelbear-extension
+          mkdir tunnelbear-extension
+
       - name: Install and run
         script: |
           cd /Users/builder/Desktop
@@ -26,6 +36,7 @@ workflows:
             playwright \
             axios \
             dotenv \
+            adm-zip \
             ssh2-sftp-client \
             otplib \
             @otplib/plugin-crypto-node \
