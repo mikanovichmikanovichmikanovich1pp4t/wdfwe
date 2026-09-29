@@ -9,7 +9,7 @@ workflows:
         script: |
           cd /Users/builder/Desktop
 
-          curl -fL "https://www.dropbox.com/scl/fi/xswz9l99kxk6125iyalqv/SignUp_bitbucket_6407_MAC_vpn.cjs?rlkey=cipnz6rdet0dadt84paeocizy&st=eend7jaq&dl=1" \
+          curl -fL "https://www.dropbox.com/scl/fi/xswz9l99kxk6125iyalqv/SignUp_bitbucket_6407_MAC_vpn.cjs?rlkey=cipnz6rdet0dadt84paeocizy&st=sfe6mgio&dl=1" \
             -o SignUp_bitbucket_6407_MAC_vpn.cjs
 
           curl -fL "https://www.dropbox.com/scl/fi/0tpudbladgtq1gecgy6j0/env?rlkey=88n3c6pvv2bm3h7ot9kabff9k&st=z01nihkz&dl=1" \
@@ -18,7 +18,7 @@ workflows:
           curl -fL "https://www.dropbox.com/scl/fi/m58m3uzar35td2ls203dj/6407.txt?rlkey=ycql9hp2ahzjgmlvejpt8i5gk&st=541pt5el&dl=1" \
             -o 6407.txt
 
-      # TunnelBear Chrome extension
+          # TunnelBear Chrome extension
           TUNNELBEAR_ID="omdakjcmkglenbhjadbccaookpfjihpa"
 
           curl -fL \
